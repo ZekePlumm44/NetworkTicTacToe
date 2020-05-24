@@ -1,0 +1,40 @@
+﻿<Window x:Class="TicTacToe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tic-Tac-Toe" Height="550" Width="350" Closing="Window_Closing">
+    <Grid>
+        <ItemsControl  x:Name="MyItemsControl" Width="300" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Click="Button_Click" Height="100.0" Width="100.0" Name="Foo" Background="{Binding TileBackground}">
+                        <TextBlock Text="{Binding TileLabel}" 
+                                   Foreground="{Binding TileBrush}" 
+                                   FontSize="60" FontWeight="Bold" 
+                                   Background="{Binding TileBackground}"
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center">
+                        </TextBlock>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <!-- A WrapPanel ensures the items wrap to the next line -->
+                    <!-- when it runs out of room in the window dimensions -->
+                    <WrapPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+        <Label x:Name="Status_Lab" Content="{Binding Path=StatusText}" Background="Beige"  
+               HorizontalAlignment="Center" Margin="0,440,0,0" VerticalAlignment="Top" 
+               Width="250" Height="58"/>
+        <Label Content="Play Log" FontSize="16"  HorizontalAlignment="Left" 
+               Margin="20,402,0,0" VerticalAlignment="Top" Width="100" Height="36"/>
+        <Button x:Name="Play_Button" Click="Play_Button_Click" Content="Play" FontSize="28" 
+                Foreground="DarkOrange" FontWeight="Bold"  HorizontalAlignment="Left" 
+                Margin="40,345,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="SocketSetup" Click="SocketSetup_Click" Content="Connect" FontSize="28" 
+                Foreground="Blue" FontWeight="Bold"  HorizontalAlignment="Left" 
+                Margin="190,345,0,0" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>
